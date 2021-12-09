@@ -4,6 +4,7 @@
   "description": "https://labenu.notion.site/LabenuSystem-5d595aaf47c248fea3ce8ade75783f47",
   "main": "index.js",
   "scripts": {
+    "migrations": "tsnd ./src/data/migrations.ts",
     "dev": "ts-node-dev ./src/index.ts",
     "start": "tsc && node ./build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
