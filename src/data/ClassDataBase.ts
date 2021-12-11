@@ -21,4 +21,12 @@ export class ClassDataBase extends BaseDataBase {
 
         return turmas
     }
+
+    async changeModule(nome: string, modulo: string) {
+        await ClassDataBase.connection('labenusystem_turma')
+        .update({
+            modulo: modulo
+        })
+        .where("nome", "=", nome)
+    }
 }
