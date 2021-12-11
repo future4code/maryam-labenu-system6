@@ -1,5 +1,5 @@
 import { Estudante } from "../types";
-import { BaseDataBase } from "./baseDataBase";
+import { BaseDataBase } from "./BaseDataBase";
 
 
 export class StudentDataBase extends BaseDataBase {
@@ -39,5 +39,21 @@ export class StudentDataBase extends BaseDataBase {
                     hobby_id: id
                 })
         }
+    }
+
+    async getStudentByName(nome: string): Promise<Estudante[]> {
+
+        const estudante: Estudante[] = await StudentDataBase.connection('labenusystem_estudante')
+            .where("nome", "LIKE", `%${nome}%`)
+
+        return estudante
+    }
+
+    async changeStudentFromClass(nome: string, turma_id: string) {
+        await StudentDataBase.connection('labenusystem_estudante')
+        .update({
+            turma_id: turma_id
+        })
+        .where("nome", "=", nome)
     }
 }

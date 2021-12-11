@@ -20,7 +20,7 @@ export const createStudent = async (req: Request, res: Response): Promise<void> 
         
         await studentDB.create(newStudent)
 
-        res.status(200).send("Novo Estudante criado com sucesso")
+        res.status(201).send("Novo Estudante criado com sucesso")
 
     } catch (error: any) {
         if (res.statusCode === 200) {

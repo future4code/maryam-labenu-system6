@@ -20,7 +20,7 @@ export const createClass = async (req: Request, res: Response): Promise<void> =>
         
         await classDB.create(newClass)
 
-        res.status(200).send("Nova Turma criada com sucesso")
+        res.status(201).send("Nova Turma criada com sucesso")
 
     } catch (error: any) {
         if (res.statusCode === 200) {
