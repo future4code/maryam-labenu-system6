@@ -3,6 +3,9 @@ import app from "./app"
 import { createClass } from "./endpoints/createClass"
 import { createStudent } from "./endpoints/createStudent"
 import { createTeacher } from "./endpoints/createTeacher"
+import { getActiveClass } from "./endpoints/getActiveClass"
+import { getStudentByName } from "./endpoints/getStudentByName"
+import { getTeachers } from "./endpoints/getTeachers"
 
 
 app.get("/", (req: Request, res: Response) => {
@@ -13,3 +16,7 @@ app.get("/", (req: Request, res: Response) => {
 app.post("/turmas", createClass)
 app.post("/estudantes", createStudent)
 app.post("/docentes", createTeacher)
+
+app.get("/turmas", getActiveClass)
+app.get("/estudantes/:nome", getStudentByName)
+app.get("/docentes", getTeachers)

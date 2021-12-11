@@ -1,5 +1,5 @@
 import { Docente } from "../types"
-import { BaseDataBase } from "./baseDataBase"
+import { BaseDataBase } from "./BaseDataBase"
 
 
 export class TeacherDataBase extends BaseDataBase {
@@ -39,5 +39,13 @@ export class TeacherDataBase extends BaseDataBase {
                     especialidade_id: id
                 })
         }
+    }
+
+    async getTeachers(): Promise<Docente[]> {
+
+        const docentes: Docente[] = await TeacherDataBase.connection('labenusystem_docente')
+            .select()
+
+        return docentes
     }
 }
