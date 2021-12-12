@@ -49,11 +49,11 @@ export class StudentDataBase extends BaseDataBase {
         return estudante
     }
 
-    async changeStudentFromClass(nome: string, turma_id: string) {
+    async changeStudentFromClass(id: string, turma_id: string) {
         await StudentDataBase.connection('labenusystem_estudante')
         .update({
             turma_id: turma_id
         })
-        .where("nome", "=", nome)
+        .where("id", "=", id)
     }
 }

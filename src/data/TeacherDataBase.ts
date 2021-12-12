@@ -49,11 +49,11 @@ export class TeacherDataBase extends BaseDataBase {
         return docentes
     }
 
-    async changeTeacherFromClass(nome: string, turma_id: string) {
+    async changeTeacherFromClass(id: string, turma_id: string) {
         await TeacherDataBase.connection('labenusystem_docente')
         .update({
             turma_id: turma_id
         })
-        .where("nome", "=", nome)
+        .where("id", "=", id)
     }
 }

@@ -4,7 +4,7 @@ import { StudentDataBase } from "../data/StudentDataBase"
 
 export const changeStudentFromClass = async (req: Request, res: Response): Promise<void> => {
     try {
-        const nome = req.params.nome
+        const id = req.params.id
         const turma_id = req.body.turma_id
 
         if (!turma_id) {
@@ -13,7 +13,7 @@ export const changeStudentFromClass = async (req: Request, res: Response): Promi
         }
 
         const StudentDB = new StudentDataBase()
-        await StudentDB.changeStudentFromClass(nome, turma_id)
+        await StudentDB.changeStudentFromClass(id, turma_id)
 
         res.status(200).send("Alteração da turma do estudante realizada!")
 
