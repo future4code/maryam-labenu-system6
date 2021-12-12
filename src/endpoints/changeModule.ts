@@ -4,7 +4,7 @@ import { ClassDataBase } from "../data/ClassDataBase";
 
 export const changeModule = async (req: Request, res: Response): Promise<void> => {
     try {
-        const nome = req.params.nome
+        const id = req.params.id
         const modulo = req.body.modulo
 
         if (modulo > "6") {
@@ -13,7 +13,7 @@ export const changeModule = async (req: Request, res: Response): Promise<void> =
         }
 
         const classDB = new ClassDataBase()
-        await classDB.changeModule(nome, modulo)
+        await classDB.changeModule(id, modulo)
 
         res.status(200).send("Alteração do módulo da turma realizado!")
 

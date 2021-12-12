@@ -4,7 +4,7 @@ import { TeacherDataBase } from "../data/TeacherDataBase"
 
 export const changeTeacherFromClass = async (req: Request, res: Response): Promise<void> => {
     try {
-        const nome = req.params.nome
+        const id = req.params.id
         const turma_id = req.body.turma_id
 
         if (!turma_id) {
@@ -13,7 +13,7 @@ export const changeTeacherFromClass = async (req: Request, res: Response): Promi
         }
 
         const teacherDB = new TeacherDataBase()
-        await teacherDB.changeTeacherFromClass(nome, turma_id)
+        await teacherDB.changeTeacherFromClass(id, turma_id)
 
         res.status(200).send("Alteração da turma do docente realizada!")
 
